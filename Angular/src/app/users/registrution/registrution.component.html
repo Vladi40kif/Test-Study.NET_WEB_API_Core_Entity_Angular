@@ -1,0 +1,32 @@
+<div class="row mt-6" style="background-color: lightblue; text-align: center; ">
+	<div class="col md-6" style="padding-bottom: 50px;border-top-width: 25px;padding-top: 25px;">
+		<h2> User Registration </h2>
+		<form class="form-horizontal" role="form" [formGroup] = "service.formModel" autocomplete="off" (submit)="register()"	>
+			<div class="formFild">
+				<label class="col-sm-3 control-label">Username</label>
+				<input formControlName = "userName" >
+			</div>
+			<div class="formFild">
+				<label class="col-sm-3 control-label">fullName</label>
+				<input formControlName = "fullName" >
+			</div>
+			<div class="formFild">
+				<label class="col-sm-3 control-label">email</label>
+				<input formControlName = "email" >
+			</div>
+
+			<div formGroupName = "password">
+				<div class="formFild">
+					<label class="col-sm-3 control-label">password</label>
+					<input formControlName = "password" >
+				</div>
+					
+				<div class="formFild">
+					<label class="col-sm-3 control-label">confirmPass</label>
+					<input formControlName = "confirmPass" >
+				</div>
+			</div>
+			<button type="submit" class="btn btn-primary" >sing up</button>
+		</form>
+	</div>	
+</div>
