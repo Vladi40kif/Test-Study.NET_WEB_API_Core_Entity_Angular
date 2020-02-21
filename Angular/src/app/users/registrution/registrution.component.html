@@ -1,25 +1,45 @@
 <form class="form-horizontal text-white mdb-color lighten-3" role="form" [formGroup] = "service.formModel" autocomplete="off" (submit)="register()"	>
-	<div class="row justify-content-md-center formFild">
-		<h6 class="col text-center">Username</h6>
-		<input class="col text-center" formControlName = "userName">
+	<div class="row justify-content-md-center formFild ">
+		<div class = "col text-center">
+			<h6>Username</h6>
+			<label class="text-danger" *ngIf="service.formModel.controls['userName'].invalid && (service.formModel.controls['userName'].dirty || service.formModel.controls['userName'].touched)">Incorrect Username!</label>
+		</div>
+		<input class="col text-center" style=" height: 100%;" formControlName = "userName">
+		
 	</div>
+
 	<div class="row justify-content-md-center formFild">
 		<h6 class="col text-center">fullName</h6>
 		<input class="col text-center" formControlName = "fullName" >
 	</div>
 	<div class="row justify-content-md-center formFild">
-		<h6 class="col text-center">email</h6>
+		<div class="col text-center">
+			<h6>email</h6>
+			<label class="text-danger" *ngIf="service.formModel.controls['email'].invalid && (service.formModel.controls['email'].dirty || service.formModel.controls['email'].touched)">Incorrect Email!</label>
+		</div>
 		<input class="col text-center" formControlName = "email" >
 	</div>
 
 	<div formGroupName = "password">
 		<div class="row justify-content-md-center formFild">
-			<h6 class="col text-center">password</h6>
+			<div class="col text-center">
+				<h6>password</h6>
+				<label class="text-danger" *ngIf="true">Incorrect Password!</label>
+			</div>
+				PROBLEM
+<!-- 				<label class="text-danger" *ngIf="service.formModel.get('passwords.password').invalid && (service.formModel.get('passwords.password').dirty || service.formModel.get('passwords.password').touched)">Incorrect Email!</label> -->
+<!--			{{service.formModel.get('passwords.password')}}
+ 			{{service.formModel.controls['password'].dirty}}
+			{{service.formModel.password.controls['password'].touched)}} -->
+
 			<input class="col text-center" formControlName = "password" >
 		</div>
 			
 		<div class="row justify-content-md-center formFild">
-			<h6 class="col text-center">confirmPass</h6>
+			<div class="col text-center">
+				<h6>confirmPass</h6>
+			</div>
+				PROBLEM
 			<input class="col text-center" formControlName = "confirmPass" >
 		</div>
 	</div>

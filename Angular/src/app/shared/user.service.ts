@@ -12,9 +12,9 @@ export class UserService {
     responceRegister: any;
 
     formModel = this.fb.group({
-        userName: ['', Validators.required],
-        fullName: ['', Validators.email],
-        email: [''],
+        userName: ['', [Validators.required, Validators.minLength(4)]],
+        fullName: [''],
+        email: ['', Validators.email],
         password: this.fb.group({
             password: ['',[Validators.required, Validators.minLength(4)]],
             confirmPass: ['', Validators.required]
@@ -33,7 +33,7 @@ export class UserService {
         });
     }
 
-    checkPasswords(group: FormGroup) { // here we have the 'passwords' group
+    checkPasswords(group: FormGroup) {
         let pass = group.get('password').value;
         let confirmPass = group.get('confirmPass').value;
 
