@@ -5,35 +5,35 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 
 @Component({
-  selector: 'app-registrution',
-  templateUrl: './registrution.component.html',
-  styleUrls: ['./registrution.component.css']
+    selector: 'app-registrution',
+    templateUrl: './registrution.component.html',
+    styleUrls: ['./registrution.component.css']
 })
 export class RegistrutionComponent implements OnInit {
 
-  constructor(public service:UserService, private http: HttpClient) { }
+    constructor(public service:UserService, private http: HttpClient) { }
 
-  register() {
-  	console.log(this.service.formModel.value.password.password);
-  	try{
+    register() {
+        console.log(this.service.formModel.value.password.password);
+        try{
 
-  		 const myHeaders = new HttpHeaders().set('Content-Type', 'application/json');
-    console.log(this.http.post("https://localhost:44373/api/Auth/register",  {
-      UserName: this.service.formModel.value.UserName,
-      Email: this.service.formModel.value.Email,
-      FullName: this.service.formModel.value.FullName,
-      Password: this.service.formModel.value.password.password
-    }, {headers: myHeaders}));
-	
-		console.log(this.http.get("https://localhost:44382/weatherforecast/"));
+            const myHeaders = new HttpHeaders().set('Content-Type', 'application/json');
+            console.log(this.http.post("https://localhost:44373/api/Auth/register",  {
+                UserName: this.service.formModel.value.UserName,
+                Email: this.service.formModel.value.Email,
+                FullName: this.service.formModel.value.FullName,
+                Password: this.service.formModel.value.password.password
+            }, {headers: myHeaders}));
 
-	}
-	catch(ex){
-		console.log(ex);
-	}
-  }
+            console.log(this.http.get("https://localhost:44382/weatherforecast/"));
 
-  ngOnInit() {
-  }
+        }
+        catch(ex){
+            console.log(ex);
+        }
+    }
+
+    ngOnInit() {
+    }
 
 }
