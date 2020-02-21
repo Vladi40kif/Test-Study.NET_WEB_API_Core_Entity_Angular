@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { UserService } from './../../shared/user.service';
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'app-registrution',
@@ -11,22 +10,11 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 })
 export class RegistrutionComponent implements OnInit {
 
-    constructor(public service:UserService, private http: HttpClient) { }
+    constructor(public service:UserService) { }
 
     register() {
-        console.log(this.service.formModel.value.password.password);
         try{
-
-            const myHeaders = new HttpHeaders().set('Content-Type', 'application/json');
-            console.log(this.http.post("https://localhost:44373/api/Auth/register",  {
-                UserName: this.service.formModel.value.UserName,
-                Email: this.service.formModel.value.Email,
-                FullName: this.service.formModel.value.FullName,
-                Password: this.service.formModel.value.password.password
-            }, {headers: myHeaders}));
-
-            console.log(this.http.get("https://localhost:44382/weatherforecast/"));
-
+            this.service.sendRegInfo();
         }
         catch(ex){
             console.log(ex);
