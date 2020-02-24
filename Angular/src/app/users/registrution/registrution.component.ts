@@ -10,15 +10,19 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class RegistrutionComponent implements OnInit {
 
-    constructor(public service:UserService) { }
+    constructor(public service:UserService, public tostar: ToastrService) { }
 
     register() {
-        try{
-            this.service.sendRegInfo();
-        }
-        catch(ex){
-            console.log(ex);
-        }
+       this.service.sendRegInfo().subscribe(resp => {
+            if(resp.succeeded){
+                this.tostar.success("Register OK");
+                this.service.registerModel.Form.reset();
+            }
+            else{
+                this.tostar.error(resp.errors[0].code + resp.errors[0].description);
+            }
+        });
+       
     }
 
     ngOnInit() {

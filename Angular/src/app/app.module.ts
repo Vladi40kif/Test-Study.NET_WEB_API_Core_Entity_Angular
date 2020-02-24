@@ -8,6 +8,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { UserService } from './shared/user.service';
+import { RegisterModelService } from './shared/registerModel.service';
+import { LoginModelService } from './shared/loginModel.service';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -31,13 +33,15 @@ import { LoginComponent } from './users/login/login.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ToastrModule.forRoot({
-      progressBar: true
-    }), 
+    ToastrModule.forRoot(), 
     BrowserAnimationsModule,
     FormsModule
   ],
-  providers: [UserService],
+  providers: [
+    UserService,
+    RegisterModelService,
+    LoginModelService
+    ],
   bootstrap: [
       AppComponent
     ]

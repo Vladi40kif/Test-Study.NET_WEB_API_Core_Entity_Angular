@@ -45,7 +45,7 @@ namespace WebApplication.Controllers
         [HttpGet]
         [Authorize(Roles = "Customer")]
         [Route("ForCustomer")]
-        public string GetCustomer()
+        public string GetCustomer() 
         {
             return "Web method for Customer";
         }

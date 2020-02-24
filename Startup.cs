@@ -89,7 +89,7 @@ namespace WebApplication
             }
 
             app.UseDefaultFiles();
-app.UseStaticFiles();
+            app.UseStaticFiles();
 
             //app.UseCors(builder => builder.WithOrigins("http://localhost:4200"));
             app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());

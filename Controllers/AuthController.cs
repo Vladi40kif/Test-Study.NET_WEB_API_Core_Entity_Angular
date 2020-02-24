@@ -42,7 +42,7 @@ namespace WebApplication.Controllers
         //POST : /api/Auth/Register
         public async Task<Object> Register(RegistrationModel model)
         {
-            model.Role = "Customer";
+                model.Role = "Customer";
             var applicationUser = new AppUser() {
                 UserName = model.UserName,
                 Email = model.Email,
