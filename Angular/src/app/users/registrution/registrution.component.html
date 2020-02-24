@@ -2,45 +2,42 @@
 	<div class="row justify-content-md-center formFild ">
 		<div class = "col text-center">
 			<h6>Username</h6>
-			<label class="text-danger" *ngIf="service.formModel.controls['userName'].invalid && (service.formModel.controls['userName'].dirty || service.formModel.controls['userName'].touched)">Incorrect Username!</label>
+			<label class="text-danger" *ngIf="service.formModel.controls.userName.invalid">Incorrect Username!</label>
 		</div>
 		<input class="col text-center" style=" height: 100%;" formControlName = "userName">
-		
+	</div>
+
+	<div class="row justify-content-md-center formFild ">
+		<div class = "col text-center">
+			<h6>FullName</h6>
+			<label class="text-danger" *ngIf="service.formModel.controls.fullName.invalid">Incorrect Name!</label>
+		</div>
+		<input class="col text-center" style=" height: 100%;" formControlName = "fullName">
 	</div>
 
 	<div class="row justify-content-md-center formFild">
-		<h6 class="col text-center">fullName</h6>
-		<input class="col text-center" formControlName = "fullName" >
-	</div>
-	<div class="row justify-content-md-center formFild">
 		<div class="col text-center">
 			<h6>email</h6>
-			<label class="text-danger" *ngIf="service.formModel.controls['email'].invalid && (service.formModel.controls['email'].dirty || service.formModel.controls['email'].touched)">Incorrect Email!</label>
+			<label class="text-danger" *ngIf="service.formModel.controls.email.invalid">Incorrect Email!</label>
 		</div>
-		<input class="col text-center" formControlName = "email" >
+		<input class="col text-center" style=" height: 100%;" formControlName = "email" >
 	</div>
 
 	<div formGroupName = "password">
 		<div class="row justify-content-md-center formFild">
 			<div class="col text-center">
 				<h6>password</h6>
-				<label class="text-danger" *ngIf="true">Incorrect Password!</label>
+				<label class="text-danger" *ngIf="service.formModel.controls.password.controls.password.invalid">Incorrect Password!</label>
 			</div>
-				PROBLEM
-<!-- 				<label class="text-danger" *ngIf="service.formModel.get('passwords.password').invalid && (service.formModel.get('passwords.password').dirty || service.formModel.get('passwords.password').touched)">Incorrect Email!</label> -->
-<!--			{{service.formModel.get('passwords.password')}}
- 			{{service.formModel.controls['password'].dirty}}
-			{{service.formModel.password.controls['password'].touched)}} -->
-
-			<input class="col text-center" formControlName = "password" >
+			<input class="col text-center" style=" height: 100%;" formControlName = "password" >
 		</div>
 			
 		<div class="row justify-content-md-center formFild">
 			<div class="col text-center">
 				<h6>confirmPass</h6>
+				<label class="text-danger" *ngIf="service.formModel.controls.password.invalid">Incorrect Confirm Password!</label>
 			</div>
-				PROBLEM
-			<input class="col text-center" formControlName = "confirmPass" >
+			<input class="col text-center"  style=" height: 100%;"  formControlName = "confirmPass" >
 		</div>
 	</div>
 	<button type="submit" class="btn btn-primary btn-lg btn-block formFild" style="margin-top: 25px" >sing up</button>
