@@ -21,41 +21,21 @@ namespace WebApplication.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Customer")]
+        [Authorize]
         //GET : /api/UserProfile
         public async Task<Object> GetUserProfile() {
             string userId = User.Claims.First(c => c.Type == "UserID").Value;
             var user = await _userManager.FindByIdAsync(userId);
-            return new
+            return new ProfileModel
             {
-                 user.FullName,
-                 user.Email,
-                 user.UserName
+                Username    = user.UserName,
+                FullName    = user.FullName,
+                Email       = user.Email,
+                EmailConfirm= user.EmailConfirmed,
+                Phone       = user.PhoneNumber,
+                PhoneConfirm= user.PhoneNumberConfirmed,
+                TwoFaktor   = user.TwoFactorEnabled
             };
-        }
-
-        [HttpGet]
-        [Authorize(Roles ="Admin")]
-        [Route("ForAdmin")]
-        public string GetForAdmin()
-        {
-            return "Web method for Admin";
-        }
-
-        [HttpGet]
-        [Authorize(Roles = "Customer")]
-        [Route("ForCustomer")]
-        public string GetCustomer() 
-        {
-            return "Web method for Customer";
-        }
-
-        [HttpGet]
-        [Authorize(Roles = "Admin,Customer")]
-        [Route("ForAdminOrCustomer")]
-        public string GetForAdminOrCustomer()
-        {
-            return "Web method for Admin or Customer";
         }
     }
 }

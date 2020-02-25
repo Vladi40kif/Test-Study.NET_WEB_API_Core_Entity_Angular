@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
 			localStorage.setItem('token', res.token);
 			this.tostar.success('Login OK');
 			this.tostar.info(res.token);
-			//this.router.navigateByUrl('/home');
+			this.router.navigateByUrl('/home');
 		},
 			err => {
 			if (err.status == 400)

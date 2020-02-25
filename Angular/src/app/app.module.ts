@@ -1,15 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { AuthInterceptor } from './shared/user/auth.interceptor';
+
 import { AuthService } from './shared/Auth/auth.service';
 import { RegisterModelService } from './shared/Auth/registerModel.service';
 import { LoginModelService } from './shared/Auth/loginModel.service';
+import { ProfileService } from './shared/User/profile.service';
+import { ProfileModelService } from './shared/User/profile-model.service';
+
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -44,7 +49,13 @@ import { UserpartComponent } from './navbar/userpart/userpart.component';
   providers: [
     AuthService,
     RegisterModelService,
-    LoginModelService
+    LoginModelService,
+    ProfileModelService,
+    ProfileService,{
+        provide: HTTP_INTERCEPTORS,
+        useClass: AuthInterceptor,
+        multi: true
+    }
     ],
   bootstrap: [
       AppComponent

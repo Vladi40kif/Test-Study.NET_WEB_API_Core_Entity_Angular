@@ -8,7 +8,9 @@ import { LoginModelService } from './loginModel.service';
 })
 export class AuthService {
 
-    constructor(public loginModel: LoginModelService, public registerModel: RegisterModelService, private http: HttpClient) { }
+    constructor(public loginModel: LoginModelService, 
+                public registerModel: RegisterModelService, 
+                private http: HttpClient) { }
 
     mainUrl: string = "https://localhost:44373/api";    
 
