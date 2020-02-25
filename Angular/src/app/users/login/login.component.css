@@ -1,0 +1,15 @@
+*[role="form"] {
+    max-width: 530px;
+    padding: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 0.3em;
+}
+
+.formFild{
+    padding: 5px;
+}
+.formFild input{
+    border-radius: 5px;
+}
+

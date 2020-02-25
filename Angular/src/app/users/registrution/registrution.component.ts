@@ -15,13 +15,14 @@ export class RegistrutionComponent{
 
     register() {
        this.service.sendRegInfo().subscribe(resp => {
+           console.log(resp);
             if(resp.succeeded){
                 this.tostar.success("Register OK");
                 this.service.registerModel.InfoForm.reset();
                 this.service.registerModel.PassForm.reset();
             }
             else{
-                this.tostar.error(resp.errors[0].code + resp.errors[0].description);
+                //this.tostar.error(resp.errors[0].code + resp.errors[0].description);
             }
         });
        

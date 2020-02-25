@@ -12,6 +12,16 @@ export class UserService {
 
     mainUrl: string = "https://localhost:44373/api";    
 
+    sendLoginInfo(): any{     
+
+        var loginBody: any = {
+            UserName: this.loginModel.LoginForm.controls['UserName'].value,
+            Password: this.loginModel.LoginForm.controls['Password'].value
+        };
+       
+        return this.http.post(this.mainUrl + "/Auth/login", loginBody);
+    }
+
     sendRegInfo(): any{     
 
         var registerBody: any = {

@@ -1,1 +1,19 @@
-<p>login works!</p>
+<form class="form-horizontal text-white mdb-color lighten-3" role="form" [formGroup] = "service.loginModel.LoginForm" autocomplete="off" (submit)="login()">
+	<div class="row justify-content-md-center formFild ">
+		<div class = "col text-center">
+			<h6>Username</h6>
+			<label class="text-danger" *ngIf="service.loginModel.LoginForm.controls['UserName'].invalid">Incorrect Username!</label>
+		</div>
+		<input class="col text-center" style=" height: 100%;" formControlName = "UserName">
+	</div>
+
+	<div class="row justify-content-md-center formFild ">
+		<div class = "col text-center">
+			<h6>FullName</h6>
+			<label class="text-danger" *ngIf="service.loginModel.LoginForm.controls['Password'].invalid">Incorrect Name!</label>
+		</div>
+		<input class="col text-center" style=" height: 100%;" formControlName = "Password">
+	</div>
+
+	<button type="submit" [disabled]="!service.loginModel.LoginForm.valid && !service.loginModel.LoginForm.touched" class="btn btn-primary btn-lg btn-block formFild" style="margin-top: 25px" >sing in</button>
+</form>
