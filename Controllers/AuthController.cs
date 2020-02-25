@@ -80,7 +80,7 @@ namespace WebApplication.Controllers
                         new Claim("UserID",user.Id.ToString()),
                         new Claim(_options.ClaimsIdentity.RoleClaimType,role.FirstOrDefault())
                     }),
-                    Expires = DateTime.UtcNow.AddDays(1),
+                    Expires = DateTime.UtcNow.AddMinutes(2),
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_appSettings.JWT_Secret)), SecurityAlgorithms.HmacSha256Signature)
                 };
                 var tokenHandler = new JwtSecurityTokenHandler();

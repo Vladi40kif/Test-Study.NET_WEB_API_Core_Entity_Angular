@@ -6,7 +6,7 @@ import { LoginModelService } from './loginModel.service';
 @Injectable({
     providedIn: 'root'
 })
-export class UserService {
+export class AuthService {
 
     constructor(public loginModel: LoginModelService, public registerModel: RegisterModelService, private http: HttpClient) { }
 

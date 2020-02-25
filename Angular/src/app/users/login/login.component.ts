@@ -1,16 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { UserService } from './../../shared/user.service';
+import { AuthService } from './../../shared/Auth/auth.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-login',
 	templateUrl: './login.component.html',
 	styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
-	constructor(public service:UserService, public tostar: ToastrService) { }
+	constructor(public service: AuthService, 
+				private tostar: ToastrService, 
+				private router: Router) { }
+
+	ngOnInit() {
+    	if (localStorage.getItem('token') != null)
+      		this.router.navigateByUrl('/home');
+  	}
 
 	public login(){
 

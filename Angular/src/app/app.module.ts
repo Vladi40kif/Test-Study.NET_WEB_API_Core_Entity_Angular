@@ -7,9 +7,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { UserService } from './shared/user.service';
-import { RegisterModelService } from './shared/registerModel.service';
-import { LoginModelService } from './shared/loginModel.service';
+import { AuthService } from './shared/Auth/auth.service';
+import { RegisterModelService } from './shared/Auth/registerModel.service';
+import { LoginModelService } from './shared/Auth/loginModel.service';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -17,6 +17,8 @@ import { FooterComponent } from './footer/footer.component';
 import { UsersComponent } from './users/users.component';
 import { RegistrutionComponent } from './users/registrution/registrution.component';
 import { LoginComponent } from './users/login/login.component';
+import { HomeComponent } from './home/home.component';
+import { UserpartComponent } from './navbar/userpart/userpart.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { LoginComponent } from './users/login/login.component';
     RegistrutionComponent,
     FooterComponent,
     NavbarComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent,
+    UserpartComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -38,7 +42,7 @@ import { LoginComponent } from './users/login/login.component';
     FormsModule
   ],
   providers: [
-    UserService,
+    AuthService,
     RegisterModelService,
     LoginModelService
     ],

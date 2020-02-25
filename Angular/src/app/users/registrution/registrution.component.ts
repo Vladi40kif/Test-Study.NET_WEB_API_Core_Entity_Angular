@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { UserService } from './../../shared/user.service';
+import { AuthService } from './../../shared/Auth/auth.service';
 import { ToastrService } from 'ngx-toastr';
 
 
@@ -11,7 +11,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class RegistrutionComponent{
 
-    constructor(public service:UserService, public tostar: ToastrService) {   }
+    constructor(public service:AuthService, 
+                public tostar: ToastrService) {   }
 
     register() {
        this.service.sendRegInfo().subscribe(resp => {
@@ -22,7 +23,7 @@ export class RegistrutionComponent{
                 this.service.registerModel.PassForm.reset();
             }
             else{
-                //this.tostar.error(resp.errors[0].code + resp.errors[0].description);
+                this.tostar.error(resp.errors[0].code + resp.errors[0].description);
             }
         });
        

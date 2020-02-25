@@ -21,7 +21,7 @@ namespace WebApplication.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "Customer")]
         //GET : /api/UserProfile
         public async Task<Object> GetUserProfile() {
             string userId = User.Claims.First(c => c.Type == "UserID").Value;
