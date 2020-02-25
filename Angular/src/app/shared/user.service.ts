@@ -15,12 +15,13 @@ export class UserService {
     sendRegInfo(): any{     
 
         var registerBody: any = {
-            UserName: this.registerModel.InfoForm.controls['userName'].value ,
-            Password: this.registerModel.PassForm.controls['password'].value.password, //  unsave??? 
+            UserName: this.registerModel.InfoForm.controls['userName'].value,
+            Password: this.registerModel.PassForm.controls['password'].value, 
             Email: this.registerModel.InfoForm.controls['email'].value,
             Role: "",
             FullName: this.registerModel.InfoForm.controls['fullName'].value 
         };
+       
         return this.http.post(this.mainUrl + "/Auth/register", registerBody);
     }
 }
