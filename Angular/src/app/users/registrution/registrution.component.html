@@ -1,8 +1,8 @@
-<form class="form-horizontal text-white mdb-color lighten-3" role="form" [formGroup] = "service.registerModel.Form" autocomplete="off" (submit)="register()"	>
+<form class="form-horizontal text-white mdb-color lighten-3" role="form" [formGroup] = "service.registerModel.InfoForm" autocomplete="off" (submit)="register()" style=" padding-bottom: 0px; margin-bottom: 0px; ">
 	<div class="row justify-content-md-center formFild ">
 		<div class = "col text-center">
 			<h6>Username</h6>
-			<label class="text-danger" *ngIf="service.registerModel.Form.controls.userName.invalid">Incorrect Username!</label>
+			<label class="text-danger" *ngIf="service.registerModel.InfoForm.controls['userName'].invalid">Incorrect Username!</label>
 		</div>
 		<input class="col text-center" style=" height: 100%;" formControlName = "userName">
 	</div>
@@ -10,7 +10,7 @@
 	<div class="row justify-content-md-center formFild ">
 		<div class = "col text-center">
 			<h6>FullName</h6>
-			<label class="text-danger" *ngIf="service.registerModel.Form.controls.fullName.invalid">Incorrect Name!</label>
+			<label class="text-danger" *ngIf="service.registerModel.InfoForm.controls['fullName'].invalid">Incorrect Name!</label>
 		</div>
 		<input class="col text-center" style=" height: 100%;" formControlName = "fullName">
 	</div>
@@ -18,27 +18,28 @@
 	<div class="row justify-content-md-center formFild">
 		<div class="col text-center">
 			<h6>email</h6>
-			<label class="text-danger" *ngIf="service.registerModel.Form.controls.email.invalid">Incorrect Email!</label>
+			<label class="text-danger" *ngIf="service.registerModel.InfoForm.controls['email'].invalid">Incorrect Email!</label>
 		</div>
 		<input class="col text-center" style=" height: 100%;" formControlName = "email" >
 	</div>
+</form>
 
-	<div formGroupName = "password">
-		<div class="row justify-content-md-center formFild">
-			<div class="col text-center">
-				<h6>password</h6>
-				<label class="text-danger" *ngIf="service.registerModel.Form.controls['password'].controls['password'].invalid">Incorrect Password!</label>
-			</div>
-			<input class="col text-center" style=" height: 100%;" formControlName = "password" >
+<form class="form-horizontal text-white mdb-color lighten-3" role="form" [formGroup] = "service.registerModel.PassForm" autocomplete="off" (submit)="register()" style=" padding-top: 0px; margin-top: 0px; ">
+
+	<div class="row justify-content-md-center formFild">
+		<div class="col text-center">
+			<h6>password</h6>
+			<label class="text-danger" *ngIf="service.registerModel.PassForm.controls['password'].invalid">Incorrect Password!</label>
 		</div>
-			
-		<div class="row justify-content-md-center formFild">
-			<div class="col text-center">
-				<h6>confirmPass</h6>
-				<label class="text-danger" *ngIf="service.registerModel.Form.controls['password'].invalid">Incorrect Confirm Password!</label>
-			</div>
-			<input class="col text-center"  style=" height: 100%;"  formControlName = "confirmPass" >
-		</div>
+		<input class="col text-center" style=" height: 100%;" formControlName = "password" >
 	</div>
-	<button type="submit" [disabled]="!service.registerModel.Form.valid" class="btn btn-primary btn-lg btn-block formFild" style="margin-top: 25px" >sing up</button>
+
+	<div class="row justify-content-md-center formFild">
+		<div class="col text-center">
+			<h6>confirmPass</h6>
+			<label class="text-danger" *ngIf="service.registerModel.PassForm.invalid">Incorrect Confirm Password!</label>
+		</div>
+		<input class="col text-center"  style=" height: 100%;"  formControlName = "confirmPass" >
+	</div>
+	<button type="submit" [disabled]="!service.registerModel.InfoForm.valid" class="btn btn-primary btn-lg btn-block formFild" style="margin-top: 25px" >sing up</button>
 </form>

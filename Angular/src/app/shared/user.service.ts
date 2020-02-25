@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { RegisterModelService } from './registerModel.service';
 import { LoginModelService } from './loginModel.service';
 
@@ -14,14 +13,14 @@ export class UserService {
     mainUrl: string = "https://localhost:44373/api";    
 
     sendRegInfo(): any{     
+
         var registerBody: any = {
-            UserName: this.registerModel.Form.controls['userName'].value ,
-            Password: this.registerModel.Form.controls['password'].value.password, //  unsave??? 
-            Email: this.registerModel.Form.controls['email'].value,
+            UserName: this.registerModel.InfoForm.controls['userName'].value ,
+            Password: this.registerModel.PassForm.controls['password'].value.password, //  unsave??? 
+            Email: this.registerModel.InfoForm.controls['email'].value,
             Role: "",
-            FullName: this.registerModel.Form.controls['fullName'].value 
+            FullName: this.registerModel.InfoForm.controls['fullName'].value 
         };
-        //console.log(registerBody);
         return this.http.post(this.mainUrl + "/Auth/register", registerBody);
     }
 }
