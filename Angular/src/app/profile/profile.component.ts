@@ -10,11 +10,10 @@ import { Router } from '@angular/router';
 export class ProfileComponent implements OnInit {
 
 	constructor(public service: ProfileService,
-		private router: Router) 
-	{}
+				private router: Router) {}
 
 	profileMap = new Array< Array<string> >();
-	loading : boolean;
+	loading : boolean = false;
 	
 	ngOnInit(): void {
 		if(!this.service.model.Valid)
@@ -23,7 +22,7 @@ export class ProfileComponent implements OnInit {
 			this.initData();
 	}
 
-	loadingMode(){
+	loadingMode(){ //  rewrite on eavent
 		this.loading = true;
 		var refreshIntervalId = setInterval(func => {
 			if(this.service.model.Valid){
@@ -34,14 +33,14 @@ export class ProfileComponent implements OnInit {
 		}, 1000);
 	}
 
-	initData(){
-			this.profileMap.push( ['Full Name', this.service.model.FullName]);
-			this.profileMap.push( ['Username', this.service.model.Username ]);
-			this.profileMap.push( ['Email', this.service.model.Email ]);
-			this.profileMap.push( ['Email Confirm', String(this.service.model.EmailConfirm) ]);
-			this.profileMap.push( ['Phone', this.service.model.Phone ]);
-			this.profileMap.push( ['Phone Confirm', String(this.service.model.PhoneConfirm) ]);
-			this.profileMap.push( ['Two Faktor', String(this.service.model.TwoFaktor) ]);
+	initData(){ // move to profile.service ??????????
+		this.profileMap.push( ['Full Name', this.service.model.FullName]);
+		this.profileMap.push( ['Username', this.service.model.Username ]);
+		this.profileMap.push( ['Email', this.service.model.Email ]);
+		this.profileMap.push( ['Email Confirm', String(this.service.model.EmailConfirm) ]);
+		this.profileMap.push( ['Phone', this.service.model.Phone ]);
+		this.profileMap.push( ['Phone Confirm', String(this.service.model.PhoneConfirm) ]);
+		this.profileMap.push( ['Two Faktor', String(this.service.model.TwoFaktor) ]);
 	}
 
 }
