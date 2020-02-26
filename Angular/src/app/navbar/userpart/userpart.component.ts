@@ -13,11 +13,8 @@ export class UserpartComponent implements OnInit {
 		private router: Router) {}
 
 	ngOnInit(): void {
-		this.service.model.Valid
 	}
 
-	
-	
 	public logout(){
 		localStorage.removeItem('token');
 		this.router.navigateByUrl('/users/login');

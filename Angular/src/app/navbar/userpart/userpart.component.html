@@ -1,7 +1,7 @@
 <div *ngIf = "service.model.Valid; else unset"> 
 
-Hello, {{service.model.FullName}} 
-<button (click)="logout()">LogOut</button>
+	Hello, {{service.model.FullName    }} 
+	<button class="btn btn-secondary btn-sm active" role="button" aria-pressed="true" (click)="logout()">LogOut</button>
 </div>
 
-<ng-template #unset> <a href="/users/login">Login</a> or <a href="/users/registration">Sing Up</a></ng-template>
+<ng-template #unset> <a href="/users/login">Sing In</a> or <a href="/users/registration">Sing Up</a></ng-template>

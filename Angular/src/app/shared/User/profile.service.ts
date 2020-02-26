@@ -20,6 +20,8 @@ export class ProfileService implements OnInit {
 	}
 
 	getData(){
+		if(localStorage.getItem('token') == null)
+			return null;
 		try{
 			this.http.get(this.mainUrl + "/UserProfile").subscribe(resp => {
 				this.model.Valid = true;
