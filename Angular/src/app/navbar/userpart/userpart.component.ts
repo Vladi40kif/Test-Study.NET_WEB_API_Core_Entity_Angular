@@ -21,4 +21,7 @@ export class UserpartComponent implements OnInit {
 		this.service.model.Valid = false;
 	}
 
+	public redirect(path: string){
+		this.router.navigateByUrl(path);
+	}
 }

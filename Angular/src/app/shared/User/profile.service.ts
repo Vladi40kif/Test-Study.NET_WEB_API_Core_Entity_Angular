@@ -9,7 +9,7 @@ import { ProfileModelService } from './profile-model.service';
 export class ProfileService implements OnInit {
 
 	constructor(private http: HttpClient,
-		public model: ProfileModelService) 
+				public model: ProfileModelService) 
 	{
 		this.getData();
 	}
@@ -19,9 +19,11 @@ export class ProfileService implements OnInit {
 	ngOnInit(): void{
 	}
 
-	getData(){
+	getData(): ProfileModelService{
+
 		if(localStorage.getItem('token') == null)
-			return null;
+			return null;	
+		
 		try{
 			this.http.get(this.mainUrl + "/UserProfile").subscribe(resp => {
 				this.model.Valid = true;
@@ -37,6 +39,7 @@ export class ProfileService implements OnInit {
 		catch(ex){
 			this.model.Valid = false;
 		}
+		return this.model;
 	}
 
 }

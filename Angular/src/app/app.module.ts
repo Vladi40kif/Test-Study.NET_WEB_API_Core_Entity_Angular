@@ -24,6 +24,7 @@ import { RegistrutionComponent } from './users/registrution/registrution.compone
 import { LoginComponent } from './users/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { UserpartComponent } from './navbar/userpart/userpart.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { UserpartComponent } from './navbar/userpart/userpart.component';
     NavbarComponent,
     LoginComponent,
     HomeComponent,
-    UserpartComponent
+    UserpartComponent,
+    ProfileComponent
   ],
   imports: [
     ReactiveFormsModule,
