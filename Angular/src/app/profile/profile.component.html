@@ -1,8 +1,8 @@
 <div class="card">
     <div class="card-body">
         <div class="card-title mb-4">
-
             <div class="d-flex justify-content-start">
+                
                 <div class="image-container">
                     <img src="assets/img/unkn_user_logo.png" id="imgProfile" style="width: 150px; height: 150px" class="img-thumbnail" />
                     <div class="middle">
@@ -12,12 +12,20 @@
                 </div>
 
                 <div class="userData ml-3">
-                    <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold"><a href="javascript:void(0);">{{service.model.fullName}}</a></h2>
-                    <h6 class="d-block"><a href="javascript:void(0)">1,500</a> Video Uploads</h6>
-                    <h6 class="d-block"><a href="javascript:void(0)">300</a> Blog Posts</h6>
-                </div>
+                    <h2 class="d-block" style="font-size: 3rem; font-weight: Bold; margin-bottom: 50px"> 
+                        {{service.model.fullName}}
+                    </h2>
+                    
+                    <button type="button" class="btn btn-success" (click)="state = 'show'"> Show</button>
 
-               
+                    <button type="button" class="btn btn-success" (click)="state = 'edit'"> Edit </button>
+                    
+                    <button type="button" class="btn btn-success"> Save </button>
+
+                </div>
+                
+
+
             </div>
         </div>
 
@@ -26,36 +34,18 @@
                 <div class="tab-content ml-1" id="myTabContent">
                     <div class="tab-pane fade show active" id="basicInfo" role="tabpanel" aria-labelledby="basicInfo-tab">
                         <hr />
-
-                        <div  [ngSwitch] = "service.getState() | async" >
-
-                            <ng-template [ngSwitchCase]="service.States.unset">
-                                err
-                            </ng-template>
-
-                            <ng-template [ngSwitchCase]="service.States.loading">
-                                <img src="assets/img/load.gif">  
-                            </ng-template>
-
-                            <ng-template [ngSwitchCase]="service.States.valid">
-                                <ul>
-                                    <li *ngFor="let fild of service.modelAsArray.Data">
-                                        <div class="row">
-                                            <div class="col-sm-3 col-md-2 col-5">
-                                                <label style="font-weight:bold;"> {{fild[0]}}</label>
-                                            </div>
-                                            <div class="col-md-8 col-6">
-                                                {{fild[1]}}
-                                            </div>
-                                        </div>
-                                        <hr />
-                                    </li>
-                                </ul>
-                            </ng-template>
-
+                       
+                        <div *ngIf="state == 'show'"> 
+                            <app-profile-show></app-profile-show>
                         </div>
+
+                        <div *ngIf="state == 'edit'"> 
+                            <app-profile-edit></app-profile-edit>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>

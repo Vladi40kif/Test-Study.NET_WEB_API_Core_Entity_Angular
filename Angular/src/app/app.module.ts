@@ -25,6 +25,8 @@ import { LoginComponent } from './users/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { UserpartComponent } from './navbar/userpart/userpart.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ShowComponent } from './profile/show/show.component';
+import { EditComponent } from './profile/edit/edit.component';
 
 
 @NgModule({
@@ -37,7 +39,9 @@ import { ProfileComponent } from './profile/profile.component';
     LoginComponent,
     HomeComponent,
     UserpartComponent,
-    ProfileComponent
+    ProfileComponent,
+    ShowComponent,
+    EditComponent
   ],
   imports: [
     ReactiveFormsModule,

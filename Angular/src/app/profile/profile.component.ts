@@ -17,6 +17,6 @@ export class ProfileComponent implements OnInit {
 		
 	}
 	
-
+	public state: string;
 	
 }

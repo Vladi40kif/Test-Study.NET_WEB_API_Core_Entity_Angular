@@ -1,0 +1,29 @@
+<div  [ngSwitch] = "service.getState() | async" >
+
+    <ng-template [ngSwitchCase]="service.States.unset">
+        err
+    </ng-template>
+
+    <ng-template [ngSwitchCase]="service.States.loading">
+        <img src="assets/img/load.gif">  
+    </ng-template>
+
+    <ng-template [ngSwitchCase]="service.States.valid">
+        <ul>
+            <li *ngFor="let fild of service.modelAsArray.Data">
+                <div class="row">
+
+                    <div class="col-sm-3 col-md-2 col-5">
+                        <label style="font-weight:bold;"> {{fild[0]}}</label>
+                    </div>
+                    <div class="col">
+                        {{fild[1]}}
+                    </div>
+                    
+                </div>
+                <hr />
+            </li>
+            <hr />
+        </ul>
+    </ng-template>
+</div>
