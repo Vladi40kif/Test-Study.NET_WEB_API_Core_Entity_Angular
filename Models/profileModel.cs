@@ -7,13 +7,13 @@ namespace WebApplication.Models
 {
     public class ProfileModel
     {
-        public string   Username    { get; set; }
-        public string   FullName    { get; set; }
-        public string   Email       { get; set; }
-        public bool     EmailConfirm{ get; set; }
-        public string   Phone       { get; set; }
-        public bool     PhoneConfirm{ get; set; }
-        public bool     TwoFaktor   { get; set; }
+        public string   username    { get; set; }
+        public string   fullName    { get; set; }
+        public string   email       { get; set; }
+        public bool     emailConfirm{ get; set; }
+        public string   phone       { get; set; }
+        public bool     phoneConfirm{ get; set; }
+        public bool     twoFaktor   { get; set; }
 
     }
 }

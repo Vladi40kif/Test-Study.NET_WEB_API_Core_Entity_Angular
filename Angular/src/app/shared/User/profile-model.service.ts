@@ -6,12 +6,12 @@ import { Injectable } from '@angular/core';
 export class ProfileModelService {
   	constructor() { }
     
-  	public Username    : string = null;
-  	public FullName    : string = null;
-  	public Email       : string = null;
-  	public EmailConfirm: boolean = null;
-  	public Phone       : string = null;
-  	public PhoneConfirm: boolean = null;
-  	public TwoFaktor   : boolean = null;
+  	public username    : string = null;
+  	public fullName    : string = null;
+  	public email       : string = null;
+  	public emailConfirm: boolean = null;
+  	public phone       : string = null;
+  	public phoneConfirm: boolean = null;
+  	public twoFaktor   : boolean = null;
 
 }

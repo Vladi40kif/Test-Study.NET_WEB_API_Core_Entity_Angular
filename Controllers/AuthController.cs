@@ -30,19 +30,13 @@ namespace WebApplication.Controllers
             _appSettings = appSettings.Value;
         }
 
-        [HttpPost]
-        //post : /api/Auth
-        public string test()
-        {
-            return "test post ok";
-        }
 
         [HttpPost]
         [Route("Register")]
         //POST : /api/Auth/Register
         public async Task<Object> Register(RegistrationModel model)
         {
-                model.Role = "Customer";
+            model.Role = "Customer";
             var applicationUser = new AppUser() {
                 UserName = model.UserName,
                 Email = model.Email,

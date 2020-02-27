@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class UserpartComponent implements OnInit {
 
 	constructor(public service: ProfileService,
-		private router: Router) {}
+				private router: Router) {}
 
 	ngOnInit(): void {
 	}
@@ -21,7 +21,4 @@ export class UserpartComponent implements OnInit {
 		this.service.getData();
 	}
 
-	public redirect(path: string){
-		this.router.navigateByUrl(path);
-	}
 }

@@ -26,15 +26,15 @@ export class ProfileService implements OnInit {
 		x =>{
 			if(x == 'valid'){
 
-				console.log('update Array ' + this.model.FullName);
+				console.log('update Array ' + this.model.fullName);
 
-				this.modelAsArray.Data[0] = ['Full Name',  this.model.FullName];
-				this.modelAsArray.Data[1] = ['Username', this.model.Username];
-				this.modelAsArray.Data[2] = ['Email', this.model.Email];
-				this.modelAsArray.Data[3] = ['Email Confirm', String(this.model.EmailConfirm)];
-				this.modelAsArray.Data[4] = ['Phone', this.model.Phone];
-				this.modelAsArray.Data[5] = ['Phone Confirm', String(this.model.PhoneConfirm)];
-				this.modelAsArray.Data[6] = ['Two Faktor', String(this.model.TwoFaktor)];
+				this.modelAsArray.Data[0] = ['Full Name',  this.model.fullName];
+				this.modelAsArray.Data[1] = ['Username', this.model.username];
+				this.modelAsArray.Data[2] = ['Email', this.model.email];
+				this.modelAsArray.Data[3] = ['Email Confirm', String(this.model.emailConfirm)];
+				this.modelAsArray.Data[4] = ['Phone', this.model.phone];
+				this.modelAsArray.Data[5] = ['Phone Confirm', String(this.model.phoneConfirm)];
+				this.modelAsArray.Data[6] = ['Two Faktor', String(this.model.twoFaktor)];
 				
 				console.log(this.modelAsArray.Data);
 			}
@@ -62,13 +62,13 @@ export class ProfileService implements OnInit {
 			
 			this.http.get(this.mainUrl + "/UserProfile").subscribe(
 			resp => {
-				this.model.Username    = resp['username']; 
-				this.model.FullName    = resp['fullName'];
-				this.model.Email       = resp['email'];
-				this.model.EmailConfirm= resp['emailConfirm'];
-				this.model.Phone       = resp['phone'];
-				this.model.PhoneConfirm= resp['phoneConfirm'];
-				this.model.TwoFaktor   = resp['twoFaktor'];
+				this.model.username    = resp['username']; 
+				this.model.fullName    = resp['fullName'];
+				this.model.email       = resp['email'];
+				this.model.emailConfirm= resp['emailConfirm'];
+				this.model.phone       = resp['phone'];
+				this.model.phoneConfirm= resp['phoneConfirm'];
+				this.model.twoFaktor   = resp['twoFaktor'];
 				
 				this.state.next('valid');
 				console.log(this.state.value);
