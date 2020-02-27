@@ -1,10 +1,26 @@
-<div *ngIf = "service.model.Valid; else unset"> 
 
-	Hello, {{service.model.FullName}} 
+<div [ngSwitch] = "service.getState() | async"> 
+
+	<ng-template ngSwitchCase="unset">
+		<a routerLink="/users/login">Sing In</a> 
+		or 
+		<a routerLink="/users/registration">Sing Up</a>
+	</ng-template>
+    
+	<ng-template ngSwitchCase="loading">
+		loading
+	</ng-template>
+
+	<ng-template ngSwitchCase="valid">
+
+		Hello, {{service.model.FullName}} 
+		
+		<button class="btn btn-secondary btn-sm" role="button" aria-pressed="true" routerLink="/profile" style="margin-right: 5px;margin-left: 10px;"> Profile </button>        
+
+		<button class="btn btn-secondary btn-sm active" role="button" aria-pressed="true" (click)="logout()" style="margin-left: 5px;">LogOut</button>	
+
+	</ng-template>
+
 	
-	<button class="btn btn-secondary btn-sm" role="button" aria-pressed="true" routerLink="/profile" style="margin-right: 5px;margin-left: 10px;"> Profile </button>        
-
-	<button class="btn btn-secondary btn-sm active" role="button" aria-pressed="true" (click)="logout()" style="margin-left: 5px;">LogOut</button>
 </div>
 
-<ng-template #unset> <a routerLink="/users/login">Sing In</a> or <a routerLink="/users/registration">Sing Up</a></ng-template>

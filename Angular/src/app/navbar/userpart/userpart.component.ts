@@ -18,7 +18,7 @@ export class UserpartComponent implements OnInit {
 	public logout(){
 		localStorage.removeItem('token');
 		this.router.navigateByUrl('/users/login');
-		this.service.model.Valid = false;
+		this.service.getData();
 	}
 
 	public redirect(path: string){

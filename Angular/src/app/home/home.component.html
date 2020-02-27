@@ -1,10 +1,28 @@
-<div class="container">
-	<div class="row" *ngIf = "service.model.Valid">
-		<button> Add Publish </button>
-	</div>
-	
+
+<div class="container" [ngSwitch] = "service.getState() | async" >
+
+	<ng-template ngSwitchCase="unset">
+		
+	</ng-template>
+    
+	<ng-template ngSwitchCase="loading">
+
+		loading
+
+	</ng-template>
+
+	<ng-template ngSwitchCase="valid">
+
+		<div class="row">
+			<button> Add Publish </button>
+		</div>
+
+	</ng-template>
+
 	<div class="row justify-content-md-center">	
 		<h1> CONTENT PAGE </h1>
 	</div>
 
 </div>
+
+
