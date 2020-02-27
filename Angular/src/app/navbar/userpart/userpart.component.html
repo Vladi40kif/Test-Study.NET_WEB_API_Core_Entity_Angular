@@ -3,17 +3,17 @@
 
 	<div class="col nav-item algin-self-end">
 
-		<ng-template ngSwitchCase="unset">
+		<ng-template [ngSwitchCase]="service.States.unset">
 			<a routerLink="/users/login">Sing In</a> 
 			or 
 			<a routerLink="/users/registration">Sing Up</a>
 		</ng-template>
 
-		<ng-template ngSwitchCase="loading">
+		<ng-template [ngSwitchCase]="service.States.loading">
 			<img src="assets/img/loading_small.gif" style = "height: 30px; weight: 30px; ">  
 		</ng-template>
 
-		<ng-template ngSwitchCase="valid">
+		<ng-template [ngSwitchCase]="service.States.valid">
 
 			Hello, {{service.model.fullName}} 
 

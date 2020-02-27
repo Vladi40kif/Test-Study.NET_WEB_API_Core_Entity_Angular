@@ -12,8 +12,7 @@ export class UserpartComponent implements OnInit {
 	constructor(public service: ProfileService,
 				private router: Router) {}
 
-	ngOnInit(): void {
-	}
+	ngOnInit(): void {}
 
 	public logout(){
 		localStorage.removeItem('token');

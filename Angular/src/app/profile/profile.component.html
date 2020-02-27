@@ -29,16 +29,15 @@
 
                         <div  [ngSwitch] = "service.getState() | async" >
 
-                            <ng-template ngSwitchCase="unset">
+                            <ng-template [ngSwitchCase]="service.States.unset">
                                 err
                             </ng-template>
 
-                            <ng-template ngSwitchCase="loading">
+                            <ng-template [ngSwitchCase]="service.States.loading">
                                 <img src="assets/img/load.gif">  
                             </ng-template>
 
-
-                            <ng-template ngSwitchCase="valid">
+                            <ng-template [ngSwitchCase]="service.States.valid">
                                 <ul>
                                     <li *ngFor="let fild of service.modelAsArray.Data">
                                         <div class="row">
