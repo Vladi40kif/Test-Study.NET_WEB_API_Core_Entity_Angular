@@ -1,26 +1,32 @@
 
-<div [ngSwitch] = "service.getState() | async"> 
+<div class="row" [ngSwitch] = "service.getState() | async"> 
 
-	<ng-template ngSwitchCase="unset">
-		<a routerLink="/users/login">Sing In</a> 
-		or 
-		<a routerLink="/users/registration">Sing Up</a>
-	</ng-template>
-    
-	<ng-template ngSwitchCase="loading">
-		loading
-	</ng-template>
+	<div class="col nav-item algin-self-end">
 
-	<ng-template ngSwitchCase="valid">
+		<ng-template ngSwitchCase="unset">
+			<a routerLink="/users/login">Sing In</a> 
+			or 
+			<a routerLink="/users/registration">Sing Up</a>
+		</ng-template>
 
-		Hello, {{service.model.FullName}} 
-		
-		<button class="btn btn-secondary btn-sm" role="button" aria-pressed="true" routerLink="/profile" style="margin-right: 5px;margin-left: 10px;"> Profile </button>        
+		<ng-template ngSwitchCase="loading">
+			<img src="assets/img/loading_small.gif" style = "height: 30px; weight: 30px; ">  
+		</ng-template>
 
-		<button class="btn btn-secondary btn-sm active" role="button" aria-pressed="true" (click)="logout()" style="margin-left: 5px;">LogOut</button>	
+		<ng-template ngSwitchCase="valid">
 
-	</ng-template>
+			Hello, {{service.model.FullName}} 
 
+			
+			<button class="btn btn-primary btn-sm" routerLink="/profile" > Add Item </button>
+
+			<button class="btn btn-secondary btn-sm" aria-pressed="true" routerLink="/profile" > Profile </button>        
+
+			<button class="btn btn-secondary btn-sm active" role="button" aria-pressed="true" (click)="logout()">LogOut</button>	
+
+		</ng-template>
+
+	</div>
 	
 </div>
 

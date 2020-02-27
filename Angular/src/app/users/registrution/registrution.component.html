@@ -41,5 +41,8 @@
 		</div>
 		<input class="col text-center"  style=" height: 100%;"  formControlName = "confirmPass" >
 	</div>
-	<button type="submit" [disabled]="!service.registerModel.InfoForm.valid && !service.registerModel.PassForm.valid && !service.registerModel.InfoForm.touched && !service.registerModel.PassForm.touched" class="btn btn-primary btn-lg btn-block formFild" style="margin-top: 25px" >sing up</button>
+	<button type="submit" [disabled]="this.service.registerModel.InfoForm.invalid || 
+           !this.service.registerModel.InfoForm.touched ||
+           this.service.registerModel.PassForm.invalid || 
+           !this.service.registerModel.PassForm.touched" class="btn btn-primary btn-lg btn-block formFild" style="margin-top: 25px" >sing up</button>
 </form>

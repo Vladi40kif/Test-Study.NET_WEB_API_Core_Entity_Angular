@@ -15,7 +15,7 @@ export class RegistrutionComponent{
                 public tostar: ToastrService) {   }
 
     register() {
-       this.service.sendRegInfo().subscribe(resp => {
+        this.service.sendRegInfo().subscribe(resp => {
            console.log(resp);
             if(resp.succeeded){
                 this.tostar.success("Register OK");

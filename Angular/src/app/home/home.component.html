@@ -3,18 +3,25 @@
 
 	<ng-template ngSwitchCase="unset">
 		
+		<div class="row justify-content-md-center">	
+			<h1> UNKNOWN USER INFO </h1>
+		</div>
+
 	</ng-template>
     
 	<ng-template ngSwitchCase="loading">
 
-		loading
+		
+		<div class="row justify-content-md-center">	
+			<img src="assets/img/load.gif">  
+		</div>
 
 	</ng-template>
 
 	<ng-template ngSwitchCase="valid">
 
-		<div class="row">
-			<button> Add Publish </button>
+		<div class="row justify-content-md-center">	
+			<h1> VALID USER INFO </h1>
 		</div>
 
 	</ng-template>

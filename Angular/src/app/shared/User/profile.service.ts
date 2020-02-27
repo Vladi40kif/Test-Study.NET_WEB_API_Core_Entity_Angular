@@ -1,8 +1,9 @@
+
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { ProfileModelService } from './profile-model.service';
+import { ProfileModelArrayService } from './profile-model-array.service';
 import { Observable, BehaviorSubject } from 'rxjs';
-import 'rxjs';
 
 @Injectable({
 	providedIn: 'root'
@@ -11,7 +12,8 @@ import 'rxjs';
 export class ProfileService implements OnInit {
 
 	constructor(private http: HttpClient,
-				public model: ProfileModelService) 
+				public model: ProfileModelService,
+				public modelAsArray: ProfileModelArrayService) 
 	{
 
 		console.log(this.state.value);
@@ -23,15 +25,18 @@ export class ProfileService implements OnInit {
 		this.getState().subscribe(
 		x =>{
 			if(x == 'valid'){
+
 				console.log('update Array ' + this.model.FullName);
-				this.DataAsArray[0] = ['Full Name',  this.model.FullName];
-				this.DataAsArray[1] = ['Username', this.model.Username];
-				this.DataAsArray[2] = ['Email', this.model.Email];
-				this.DataAsArray[3] = ['Email Confirm', String(this.model.EmailConfirm)];
-				this.DataAsArray[4] = ['Phone', this.model.Phone];
-				this.DataAsArray[5] = ['Phone Confirm', String(this.model.PhoneConfirm)];
-				this.DataAsArray[6] = ['Two Faktor', String(this.model.TwoFaktor)];
-				console.log(this.DataAsArray);
+
+				this.modelAsArray.Data[0] = ['Full Name',  this.model.FullName];
+				this.modelAsArray.Data[1] = ['Username', this.model.Username];
+				this.modelAsArray.Data[2] = ['Email', this.model.Email];
+				this.modelAsArray.Data[3] = ['Email Confirm', String(this.model.EmailConfirm)];
+				this.modelAsArray.Data[4] = ['Phone', this.model.Phone];
+				this.modelAsArray.Data[5] = ['Phone Confirm', String(this.model.PhoneConfirm)];
+				this.modelAsArray.Data[6] = ['Two Faktor', String(this.model.TwoFaktor)];
+				
+				console.log(this.modelAsArray.Data);
 			}
 		});
 	}
@@ -40,28 +45,21 @@ export class ProfileService implements OnInit {
 
 	private state = new BehaviorSubject('unset');
 
-	DataAsArray = new Array<Array<string>>(
-			['Full Name', ''],
-			['Username', '' ],
-			['Email', '' ],
-			['Email Confirm', '' ],
-			['Phone', '' ],
-			['Phone Confirm', '' ],
-			['Two Faktor', '' ]
-		);
-
 	ngOnInit(): void{}
 
 	getData(){
 		if(localStorage.getItem('token') == null){
 
 			this.state.next('unset');
+			
 			console.log(this.state.value);
+		
 		}
 		else{
 
 			this.state.next('loading');
 			console.log(this.state.value);
+			
 			this.http.get(this.mainUrl + "/UserProfile").subscribe(
 			resp => {
 				this.model.Username    = resp['username']; 
