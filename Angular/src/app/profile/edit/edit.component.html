@@ -11,20 +11,40 @@
     <ng-template [ngSwitchCase]="service.serviceProfile.serviceUser.States.valid">
         <ul>
         	<form  [formGroup] = "service.editFormModel.Form">
-            <li *ngFor="let fild of service.serviceProfile.modelAsArray.Data">
-                <div class="row">
+                <li *ngFor="let fild of service.serviceProfile.modelAsArray.Data">
+                    <div class="row">
 
-                    <div class="col-sm-3 col-md-2 col-5">
-                        <label style="font-weight:bold;"> {{fild.fildName}}</label>
-                    </div>
-                    <div class="col">
-                        <input value = {{fild.value}} formControlName = {{fild.fildNameInModel}}> 
-                    </div>
-                    
+                        <div class="col-sm-3 col-md-2 col-5">
+                            <label style="font-weight:bold;"> {{fild.fildName}}</label>
+                        </div>
+
+                        <div class="col">
+
+                            <ng-template [ngIf]="fild.editable" >
+
+                             <input *ngIf= " !fild.isDropDown; else nonStringFild"   value = {{fild.value}} formControlName = {{fild.fildNameInModel}}> 
+
+                             <ng-template #nonStringFild>
+                                <ng-template [ngIf]=" fild.isDropDown">
+
+                                    <select id="cars">
+                                      <option *ngFor="let val of fild.dropDownValues" value={{val}}>{{val}}</option>
+                                  </select> 
+
+                              </ng-template>
+                          </ng-template>
+
+                      </ng-template>
+
+                      <ng-template [ngIf]="!fild.editable">
+                        {{fild.value}}
+                    </ng-template>
+
                 </div>
-                <hr />
-            </li>
-        	</form>
-        </ul>
-    </ng-template>
+            </div>
+            <hr />
+        </li>
+    </form>
+</ul>
+</ng-template>
 </div>
