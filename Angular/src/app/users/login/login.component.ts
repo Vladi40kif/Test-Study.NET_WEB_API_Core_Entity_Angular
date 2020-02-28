@@ -3,7 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { AuthService } from './../../shared/Auth/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { ProfileService } from './../../shared/User/profile.service';
+import { UserService } from './../../shared/User/user.service';
 
 @Component({
 	selector: 'app-login',
@@ -12,7 +12,7 @@ import { ProfileService } from './../../shared/User/profile.service';
 })
 export class LoginComponent implements OnInit {
 
-	constructor(private profileService: ProfileService, 
+	constructor(private profileService: UserService, 
 				public service: AuthService, 
 				private tostar: ToastrService, 
 				private router: Router) { }

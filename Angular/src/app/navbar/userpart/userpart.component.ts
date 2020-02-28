@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfileService } from './../../shared/User/profile.service';
+import { ProfileService } from './../../shared/profile/profile.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -17,7 +17,7 @@ export class UserpartComponent implements OnInit {
 	public logout(){
 		localStorage.removeItem('token');
 		this.router.navigateByUrl('/users/login');
-		this.service.getData();
+		this.service.serviceUser.getData();
 	}
 
 }

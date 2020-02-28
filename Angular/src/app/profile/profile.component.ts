@@ -1,5 +1,5 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
-import { ProfileService } from './../shared/User/profile.service';
+import { EditProfileService } from './../shared/editProfile/edit-profile.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ProfileComponent implements OnInit {
 
-	constructor(public service: ProfileService,
+	constructor(public service: EditProfileService,
 				private router: Router,
 				private toster: ToastrService) 
 	{}
@@ -22,6 +22,7 @@ export class ProfileComponent implements OnInit {
 	public state: string;
 	
 	public saveChange(){
+		this.service.serviceProfile.serviceUser.States;
 		this.toster.show("Information send");
   		this.service.sendNewData().subscribe(
 	  		resp => this.toster.success("ok"),

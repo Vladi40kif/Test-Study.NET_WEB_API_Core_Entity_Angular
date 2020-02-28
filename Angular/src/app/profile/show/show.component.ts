@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfileService } from './../../shared/User/profile.service';
+import { ProfileService } from './../../shared/profile/profile.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class ShowComponent implements OnInit {
 
-  constructor(public service: ProfileService,
+	constructor(public service: ProfileService,
 				private router: Router) { }
 
   ngOnInit(): void {

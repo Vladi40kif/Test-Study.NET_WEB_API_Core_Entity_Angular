@@ -14,18 +14,18 @@
                 <div class="userData ml-3">
                     <h2 class="d-block" style="font-size: 3rem; font-weight: Bold; margin-bottom: 50px"> 
 
-                        <div  [ngSwitch] = "service.getState() | async" >
+                        <div  [ngSwitch] = "service.serviceProfile.serviceUser.getState() | async" >
 
-                            <ng-template [ngSwitchCase]="service.States.unset">
+                            <ng-template [ngSwitchCase]="service.serviceProfile.serviceUser.States.unset">
                                 err
                             </ng-template>
 
-                            <ng-template [ngSwitchCase]="service.States.loading">
+                            <ng-template [ngSwitchCase]="service.serviceProfile.serviceUser.States.loading">
                                 <img src="assets/img/load.gif">  
                             </ng-template>
 
-                            <ng-template [ngSwitchCase]="service.States.valid">
-                               {{service.model.fullName}}
+                            <ng-template [ngSwitchCase]="service.serviceProfile.serviceUser.States.valid">
+                               {{service.serviceProfile.serviceUser.model.fullName}}
                            </ng-template>
 
                         </div>    

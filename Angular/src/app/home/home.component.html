@@ -1,7 +1,7 @@
 
-<div class="container" [ngSwitch] = "service.getState() | async" >
+<div class="container" [ngSwitch] = "service.serviceUser.getState() | async" >
 
-	<ng-template [ngSwitchCase]="service.States.unset">
+	<ng-template [ngSwitchCase]="service.serviceUser.States.unset">
 		
 		<div class="row justify-content-md-center">	
 			<h1> UNKNOWN USER INFO </h1>
@@ -9,7 +9,7 @@
 
 	</ng-template>
     
-	<ng-template [ngSwitchCase]="service.States.loading">
+	<ng-template [ngSwitchCase]="service.serviceUser.States.loading">
 
 		
 		<div class="row justify-content-md-center">	
@@ -18,7 +18,7 @@
 
 	</ng-template>
 
-	<ng-template [ngSwitchCase]="service.States.valid">
+	<ng-template [ngSwitchCase]="service.serviceUser.States.valid">
 
 		<div class="row justify-content-md-center">	
 			<h1> VALID USER INFO </h1>

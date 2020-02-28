@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfileService } from './../../shared/User/profile.service';
+import { EditProfileService } from './../../shared/editProfile/edit-profile.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,11 +9,11 @@ import { Router } from '@angular/router';
 })
 export class EditComponent implements OnInit {
 
-  constructor(public service: ProfileService,
+ 	constructor(public service: EditProfileService,
 				private router: Router) { }
 
-  ngOnInit(): void {
-  
-  }
+	ngOnInit(): void {
+		this.service.serviceProfile.modelAsArray.Data[0].fildNameInModel;
+	}
 
 }

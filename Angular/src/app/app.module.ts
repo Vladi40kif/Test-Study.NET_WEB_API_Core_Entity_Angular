@@ -10,11 +10,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthInterceptor } from './shared/user/auth.interceptor';
 
 import { AuthService } from './shared/Auth/auth.service';
-import { RegisterModelService } from './shared/Auth/registerModel.service';
-import { LoginModelService } from './shared/Auth/loginModel.service';
-import { ProfileService } from './shared/User/profile.service';
-import { ProfileModelService } from './shared/User/profile-model.service';
-
+import { EditProfileService } from './shared/editProfile/edit-profile.service';
+import { ProfileService } from './shared/profile/profile.service';
+import { UserService } from './shared/User/user.service';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -54,10 +52,9 @@ import { EditComponent } from './profile/edit/edit.component';
   ],
   providers: [
     AuthService,
-    RegisterModelService,
-    LoginModelService,
-    ProfileModelService,
+    EditProfileService,
     ProfileService,
+    UserService,
     {
         provide: HTTP_INTERCEPTORS,
         useClass: AuthInterceptor,

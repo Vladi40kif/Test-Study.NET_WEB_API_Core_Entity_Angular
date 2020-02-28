@@ -1,21 +1,21 @@
 
-<div class="row" [ngSwitch] = "service.getState() | async"> 
+<div class="row" [ngSwitch] = "service.serviceUser.getState() | async"> 
 
 	<div class="col nav-item algin-self-end">
 
-		<ng-template [ngSwitchCase]="service.States.unset">
+		<ng-template [ngSwitchCase]="service.serviceUser.States.unset">
 			<a routerLink="/users/login">Sing In</a> 
 			or 
 			<a routerLink="/users/registration">Sing Up</a>
 		</ng-template>
 
-		<ng-template [ngSwitchCase]="service.States.loading">
+		<ng-template [ngSwitchCase]="service.serviceUser.States.loading">
 			<img src="assets/img/loading_small.gif" style = "height: 30px; weight: 30px; ">  
 		</ng-template>
 
-		<ng-template [ngSwitchCase]="service.States.valid">
+		<ng-template [ngSwitchCase]="service.serviceUser.States.valid">
 
-			Hello, {{service.model.fullName}} 
+			Hello, {{service.serviceUser.model.fullName}} 
 
 			
 			<button class="btn btn-primary btn-sm" routerLink="/profile" > Add Item </button>

@@ -1,24 +1,24 @@
-<div  [ngSwitch] = "service.getState() | async" >
+<div  [ngSwitch] = "service.serviceProfile.serviceUser.getState() | async" >
 
-    <ng-template [ngSwitchCase]="service.States.unset">
+    <ng-template [ngSwitchCase]="service.serviceProfile.serviceUser.States.unset">
         err
     </ng-template>
 
-    <ng-template [ngSwitchCase]="service.States.loading">
+    <ng-template [ngSwitchCase]="service.serviceProfile.serviceUser.States.loading">
         <img src="assets/img/load.gif">  
     </ng-template>
 
-    <ng-template [ngSwitchCase]="service.States.valid">
+    <ng-template [ngSwitchCase]="service.serviceProfile.serviceUser.States.valid">
         <ul>
         	<form  [formGroup] = "service.editFormModel.Form">
-            <li *ngFor="let fild of service.modelAsArray.Data">
+            <li *ngFor="let fild of service.serviceProfile.modelAsArray.Data">
                 <div class="row">
 
                     <div class="col-sm-3 col-md-2 col-5">
-                        <label style="font-weight:bold;"> {{fild[0]}}</label>
+                        <label style="font-weight:bold;"> {{fild.fildName}}</label>
                     </div>
                     <div class="col">
-                        <input value = {{fild[1]}} formControlName = {{fild[2]}}> 
+                        <input value = {{fild.value}} formControlName = {{fild.fildNameInModel}}> 
                     </div>
                     
                 </div>

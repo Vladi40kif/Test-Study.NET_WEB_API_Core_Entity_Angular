@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfileService } from './../shared/User/profile.service';
+import { ProfileService } from './../shared/profile/profile.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent implements OnInit {
 
   constructor(public service: ProfileService,
