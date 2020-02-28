@@ -6,10 +6,6 @@ import { Fild } from './fild-model';
 })
 export class ProfileModelArrayService {
 
-	constructor() {
-		console.log(this.Data);
-	}
-
 	Data = new Array<Fild>(
 			new Fild('Full Name','', "fullName"),
 			new Fild('Username', '',  "username" ),

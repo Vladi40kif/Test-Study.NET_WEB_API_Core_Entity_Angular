@@ -12,8 +12,6 @@ export class EditComponent implements OnInit {
  	constructor(public service: EditProfileService,
 				private router: Router) { }
 
-	ngOnInit(): void {
-		this.service.serviceProfile.modelAsArray.Data[0].fildNameInModel;
-	}
+	ngOnInit(): void {}
 
 }

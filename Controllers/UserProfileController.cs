@@ -44,7 +44,7 @@ namespace WebApplication.Controllers
         [Authorize]
         //Post : /api/UserProfile
         public async Task<IActionResult> SetUserProfile(ProfileModel model)
-        {
+            {
             string userId = User.Claims.First(c => c.Type == "UserID").Value;
             var user = await _userManager.FindByIdAsync(userId);
             
@@ -61,7 +61,7 @@ namespace WebApplication.Controllers
 
             var result = await _userManager.UpdateAsync(user);
             if (result.Succeeded)
-                return Ok( new { user} );
+                return Ok( user );
 
             return BadRequest( new { massage = result.Errors.ToList() } );
 

@@ -23,9 +23,12 @@ export class ProfileComponent implements OnInit {
 	
 	public saveChange(){
 		this.service.serviceProfile.serviceUser.States;
-		this.toster.show("Information send");
+		this.toster.warning("Information send! Wait...");
   		this.service.sendNewData().subscribe(
-	  		resp => this.toster.success("ok"),
+	  		resp => {
+	  			this.toster.success("OK! Info edited!")
+	  			this.service.serviceProfile.serviceUser.getDataFromRequest(resp);
+	  		},
 	  		err  => this.toster.error("error")
   		);
   }

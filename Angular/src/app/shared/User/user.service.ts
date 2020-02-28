@@ -47,6 +47,14 @@ export class UserService implements OnInit {
 		}	
 	}
 
+	getDataFromRequest(resp: any){
+
+		this.state.next(State.loading);
+		this.initModel(resp);
+		this.state.next(State.valid);
+		
+	}
+
 	getState(): Observable<State>{
 		return this.state;
 	}
