@@ -1,66 +1,63 @@
 <div class="card">
     <div class="card-body">
-        <div class="card-title mb-4">
-            <div class="d-flex justify-content-start">
+        <div class="container">
+            <div class="row justify-content-center align-self-center">
 
-                <div class="image-container">
-                    <img src="assets/img/unkn_user_logo.png" id="imgProfile" style="width: 150px; height: 150px" class="img-thumbnail" />
-                    <div class="middle">
-                        <input type="button" class="btn btn-secondary" id="btnChangePicture" value="Change" />
-                        <input type="file" style="display: none;" id="profilePicture" name="file" />
-                    </div>
+                <div class="col justify-content-center">
+                <img src="assets/img/unkn_user_logo.png" id="imgProfile" style="width: 150px; height: 150px;" />
                 </div>
 
-                <div class="userData ml-3">
-                    <h2 class="d-block" style="font-size: 3rem; font-weight: Bold; margin-bottom: 50px"> 
+                <div class="col justify-content-center align-self-center">
+                    <h2 style="font-size: 3rem; font-weight: Bold; margin-bottom: 50px"> 
 
-                        <div  [ngSwitch] = "service.serviceProfile.serviceUser.getState() | async" >
+                        <div [ngSwitch] = "service.serviceProfile.serviceUser.getState() | async" >
 
                             <ng-template [ngSwitchCase]="service.serviceProfile.serviceUser.States.unset">
-                                err
+                            err
                             </ng-template>
 
                             <ng-template [ngSwitchCase]="service.serviceProfile.serviceUser.States.loading">
-                                <img src="assets/img/load.gif">  
+                            <img src="assets/img/loading_small.gif" style="width: 50px;height: 50px;">  
                             </ng-template>
 
                             <ng-template [ngSwitchCase]="service.serviceProfile.serviceUser.States.valid">
-                               {{service.serviceProfile.serviceUser.model.fullName}}
-                           </ng-template>
+                                {{service.serviceProfile.serviceUser.model.fullName}}
+                            </ng-template>
 
                         </div>    
-                   </h2>
+                    </h2>
+                </div>
 
-                   <button type="button" class="btn btn-info" (click)="state = 'show'"> Show</button>
+                <div class="col justify-content-center align-self-center">
+                   <button type="button" class="btn btn-info algin-self-start" (click)="state = 'show'"> Show</button>
 
-                   <button type="button" class="btn btn-warning" (click)="state = 'edit'"> Edit </button>
+                   <button type="button" class="btn btn-warning algin-self-center" (click)="state = 'edit'"> Edit </button>
 
-                   <button type="button" class="btn btn-success" (click) = "saveChange()"> Save </button>
+                   <button type="button" class="btn btn-success algin-self-center" (click) = "saveChange()"> Save </button>
+                </div>
 
-               </div>
+            </div>
+        </div>
 
+        <div class="row">
+            <div class="col-12">
+                <div class="tab-content ml-1" id="myTabContent">
+                    <div class="tab-pane fade show active" id="basicInfo" role="tabpanel" aria-labelledby="basicInfo-tab">
+                        <hr />
 
+                        <div *ngIf="state == 'show'"> 
+                            <app-profile-show></app-profile-show>
+                        </div>
 
-           </div>
-       </div>
+                        <div *ngIf="state == 'edit'"> 
+                            <app-profile-edit></app-profile-edit>
+                        </div>
 
-       <div class="row">
-        <div class="col-12">
-            <div class="tab-content ml-1" id="myTabContent">
-                <div class="tab-pane fade show active" id="basicInfo" role="tabpanel" aria-labelledby="basicInfo-tab">
-                    <hr />
-
-                    <div *ngIf="state == 'show'"> 
-                        <app-profile-show></app-profile-show>
                     </div>
-
-                    <div *ngIf="state == 'edit'"> 
-                        <app-profile-edit></app-profile-edit>
-                    </div>
-
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 

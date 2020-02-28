@@ -1,10 +1,7 @@
-button{
-    margin-right: 10px;
-    margin-left: 10px;
-}
 
 .image-container {
-    position: relative;
+    width: 150px;
+    height: 150px;
 }
 
 .image {
