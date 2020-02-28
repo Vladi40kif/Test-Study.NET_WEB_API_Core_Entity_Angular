@@ -1,6 +1,6 @@
 
 import { Injectable, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Observable, BehaviorSubject } from 'rxjs';
 
 import { ProfileModelService } from './profile-model.service';
@@ -8,10 +8,10 @@ import { EditProfileModelService } from './edit-profile-model.service';
 import { ProfileModelArrayService } from './profile-model-array.service';
 import { State } from './StateEnum';
 
+
 @Injectable({
 	providedIn: 'root'
 })
-
 export class ProfileService implements OnInit {
 
 	constructor(private http: HttpClient,
@@ -62,6 +62,20 @@ export class ProfileService implements OnInit {
 		return this.state;
 	}
 
+	sendNewData(){
+		var	editBody: any =  {
+	  		username: this.editFormModel.Form.controls['username'].value,    
+		    fullName: this.editFormModel.Form.controls['fullName'].value,
+		    email: this.editFormModel.Form.controls['email'].value,       
+		    emailConfirm: this.editFormModel.Form.controls['emailConfirm'].value,
+		    phone: this.editFormModel.Form.controls['phone'].value,       
+		    phoneConfirm: this.editFormModel.Form.controls['phoneConfirm'].value,
+		    twoFaktor: this.editFormModel.Form.controls['twoFaktor'].value
+		}   
+
+		return this.http.post(this.mainUrl + "/UserProfile", editBody);
+	}
+
 	private initModel(resp: any){
 		this.model.username    = resp['username']; 
 		this.model.fullName    = resp['fullName'];
@@ -74,13 +88,13 @@ export class ProfileService implements OnInit {
 
 	private initArray(){
 
-		this.modelAsArray.Data[0] = ['Full Name',  this.model.fullName];
-		this.modelAsArray.Data[1] = ['Username', this.model.username];
-		this.modelAsArray.Data[2] = ['Email', this.model.email];
-		this.modelAsArray.Data[3] = ['Email Confirm', String(this.model.emailConfirm)];
-		this.modelAsArray.Data[4] = ['Phone', this.model.phone];
-		this.modelAsArray.Data[5] = ['Phone Confirm', String(this.model.phoneConfirm)];
-		this.modelAsArray.Data[6] = ['Two Faktor', String(this.model.twoFaktor)];
+		this.modelAsArray.Data[0] = ['Full Name',  this.model.fullName, "fullName"];
+		this.modelAsArray.Data[1] = ['Username', this.model.username, "username"];
+		this.modelAsArray.Data[2] = ['Email', this.model.email,"email" ];
+		this.modelAsArray.Data[3] = ['Email Confirm', String(this.model.emailConfirm),"emailConfirm" ];
+		this.modelAsArray.Data[4] = ['Phone', this.model.phone, "phone"];
+		this.modelAsArray.Data[5] = ['Phone Confirm', String(this.model.phoneConfirm), "phoneConfirm"];
+		this.modelAsArray.Data[6] = ['Two Faktor', String(this.model.twoFaktor),"twoFaktor" ];
 	}
 
 	private initEditForm(){

@@ -61,9 +61,9 @@ namespace WebApplication.Controllers
 
             var result = await _userManager.UpdateAsync(user);
             if (result.Succeeded)
-                return Ok("Change OK!");
+                return Ok( new { user} );
 
-            return BadRequest(result.Errors.ToList());
+            return BadRequest( new { massage = result.Errors.ToList() } );
 
         }
 

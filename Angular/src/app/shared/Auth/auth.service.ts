@@ -36,4 +36,5 @@ export class AuthService {
        
         return this.http.post(this.mainUrl + "/Auth/register", registerBody);
     }
+    
 }

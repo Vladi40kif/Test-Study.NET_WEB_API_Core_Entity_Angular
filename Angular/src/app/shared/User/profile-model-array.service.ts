@@ -7,16 +7,19 @@ export class ProfileModelArrayService {
 
 	constructor() {
 		this.Data = new Array<Array<string>>(
-			['Full Name', ''],
-			['Username', '' ],
-			['Email', '' ],
-			['Email Confirm', '' ],
-			['Phone', '' ],
-			['Phone Confirm', '' ],
-			['Two Faktor', '' ]
+			['Full Name', '', "fullName"],
+			['Username', '',  "username" ],
+			['Email', '', "email" ],
+			['Email Confirm', '', "emailConfirm" ],
+			['Phone', '',"phone"  ],
+			['Phone Confirm', '',  "phoneConfirm"],
+			['Two Faktor', '', "twoFaktor" ]
 			);
 	}
 
-	Data: Array<Array<string>>; 
+	Data: Array<Array<string>>;
+
+
+ 
 
 }

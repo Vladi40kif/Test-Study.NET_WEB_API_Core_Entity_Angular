@@ -13,6 +13,7 @@ export class EditComponent implements OnInit {
 				private router: Router) { }
 
   ngOnInit(): void {
+  
   }
 
 }

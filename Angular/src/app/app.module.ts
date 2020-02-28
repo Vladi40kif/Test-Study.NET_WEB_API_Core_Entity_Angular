@@ -57,7 +57,8 @@ import { EditComponent } from './profile/edit/edit.component';
     RegisterModelService,
     LoginModelService,
     ProfileModelService,
-    ProfileService,{
+    ProfileService,
+    {
         provide: HTTP_INTERCEPTORS,
         useClass: AuthInterceptor,
         multi: true
