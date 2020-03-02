@@ -61,7 +61,16 @@ namespace WebApplication.Controllers
 
             var result = await _userManager.UpdateAsync(user);
             if (result.Succeeded)
-                return Ok( user );
+                return Ok(new ProfileModel
+                {
+                    username = user.UserName,
+                    fullName = user.FullName,
+                    email = user.Email,
+                    emailConfirm = user.EmailConfirmed,
+                    phone = user.PhoneNumber,
+                    phoneConfirm = user.PhoneNumberConfirmed,
+                    twoFaktor = user.TwoFactorEnabled
+                } );
 
             return BadRequest( new { massage = result.Errors.ToList() } );
 

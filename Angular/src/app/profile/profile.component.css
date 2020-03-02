@@ -1,4 +1,6 @@
-
+button{
+    margin: 5px;
+}
 .image-container {
     width: 150px;
     height: 150px;

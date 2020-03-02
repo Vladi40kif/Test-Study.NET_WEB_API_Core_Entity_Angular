@@ -22,7 +22,6 @@ export class ProfileComponent implements OnInit {
 	public state: string;
 	
 	public saveChange(){
-		this.service.serviceProfile.serviceUser.States;
 		this.toster.warning("Information send! Wait...");
   		this.service.sendNewData().subscribe(
 	  		resp => {

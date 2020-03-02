@@ -27,7 +27,7 @@
                              <ng-template #nonStringFild>
                                 <ng-template [ngIf]=" fild.isDropDown">
 
-                                    <select id="cars">
+                                    <select>
                                       <option *ngFor="let val of fild.dropDownValues" value={{val}}>{{val}}</option>
                                   </select> 
 

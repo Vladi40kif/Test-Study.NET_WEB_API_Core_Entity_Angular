@@ -25,13 +25,13 @@ export class EditProfileService {
 
  	sendNewData(){
 		var	editBody: any =  {
-	  		username: this.editFormModel.Form.controls['username'].value,    
-		    fullName: this.editFormModel.Form.controls['fullName'].value,
-		    email: this.editFormModel.Form.controls['email'].value,       
+	  		username: 	  this.editFormModel.Form.controls['username'].value,    
+		    fullName: 	  this.editFormModel.Form.controls['fullName'].value,
+		    email: 	  	  this.editFormModel.Form.controls['email'].value,       
 		    emailConfirm: this.editFormModel.Form.controls['emailConfirm'].value,
-		    phone: this.editFormModel.Form.controls['phone'].value,       
+		    phone: 		  this.editFormModel.Form.controls['phone'].value,       
 		    phoneConfirm: this.editFormModel.Form.controls['phoneConfirm'].value,
-		    twoFaktor: this.editFormModel.Form.controls['twoFaktor'].value
+		    twoFaktor: 	  this.editFormModel.Form.controls['twoFaktor'].value
 		}   
 
 		return this.http.post(this.mainUrl + "/UserProfile", editBody);
