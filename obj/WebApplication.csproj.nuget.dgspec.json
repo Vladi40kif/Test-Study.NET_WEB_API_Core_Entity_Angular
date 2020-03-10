@@ -1,21 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\NETFULLY\\source\\repos\\WebApplication\\WebApplication\\WebApplication.csproj": {}
+    "C:\\Users\\wwwvl\\source\\repos\\WebApplication\\WebApplication\\WebApplication.csproj": {}
   },
   "projects": {
-    "C:\\Users\\NETFULLY\\source\\repos\\WebApplication\\WebApplication\\WebApplication.csproj": {
+    "C:\\Users\\wwwvl\\source\\repos\\WebApplication\\WebApplication\\WebApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\NETFULLY\\source\\repos\\WebApplication\\WebApplication\\WebApplication.csproj",
+        "projectUniqueName": "C:\\Users\\wwwvl\\source\\repos\\WebApplication\\WebApplication\\WebApplication.csproj",
         "projectName": "WebApplication",
-        "projectPath": "C:\\Users\\NETFULLY\\source\\repos\\WebApplication\\WebApplication\\WebApplication.csproj",
-        "packagesPath": "C:\\Users\\NETFULLY\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\NETFULLY\\source\\repos\\WebApplication\\WebApplication\\obj\\",
+        "projectPath": "C:\\Users\\wwwvl\\source\\repos\\WebApplication\\WebApplication\\WebApplication.csproj",
+        "packagesPath": "C:\\Users\\wwwvl\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\wwwvl\\source\\repos\\WebApplication\\WebApplication\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\NETFULLY\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\wwwvl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -44,31 +48,29 @@
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.1.1, )"
+              "version": "[3.1.2, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.1.1, )"
+              "version": "[3.1.2, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
               "target": "Package",
-              "version": "[3.1.1, )"
+              "version": "[3.1.2, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[3.1.1, )"
+              "version": "[3.1.2, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[3.1.1, )"
+              "version": "[3.1.2, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.1.1, )"
+              "version": "[3.1.2, )"
             },
             "Microsoft.Extensions.Identity.Core": {
               "target": "Package",
@@ -77,6 +79,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.1.1, )"
+            },
+            "System.Diagnostics.Tools": {
+              "target": "Package",
+              "version": "[4.3.0, )"
             }
           },
           "imports": [
