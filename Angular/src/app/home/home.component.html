@@ -1,4 +1,30 @@
 
+<div class="row-9  justify-content-center"> 
+<ngb-carousel>
+	<ng-template ngbSlide>
+	  <img class='mh-100' style='height: 400px; ' src="assets/img/3d-printed.jpg">
+	  <div class="carousel-caption">
+		<h3>10 seconds between slides...</h3>
+		<p>This carousel uses customized default values.</p>
+	  </div>
+	</ng-template>
+	<ng-template ngbSlide>
+	  <img class='mh-100' style='height: 400px;' src="assets/img/software.jpg">
+	  <div class="carousel-caption">
+		<h3>No mouse events...</h3>
+		<p>This carousel doesn't pause or resume on mouse events</p>
+	  </div>
+	</ng-template>
+	<ng-template ngbSlide>
+	  <img class='mh-100' style='height: 400px;' src="assets/img/el_engenering.png">
+	  <div class="carousel-caption">
+		<h3>No keyboard...</h3>
+		<p>This carousel uses customized default values.</p>
+	  </div>
+	</ng-template>
+  </ngb-carousel>
+</div>
+
 <div class="container" [ngSwitch] = "service.serviceUser.getState() | async" >
 
 	<ng-template [ngSwitchCase]="service.serviceUser.States.unset">

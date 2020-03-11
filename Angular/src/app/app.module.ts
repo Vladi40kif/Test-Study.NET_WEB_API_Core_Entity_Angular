@@ -26,6 +26,11 @@ import { ProfileComponent } from './profile/profile.component';
 import { ShowComponent } from './profile/show/show.component';
 import { EditComponent } from './profile/edit/edit.component';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { AboutComponent } from './about/about.component';
+import { PublicationsComponent } from './publications/publications.component';
+import { ProjectsComponent } from './projects/projects.component';
+import { AwardsComponent } from './awards/awards.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +44,11 @@ import { EditComponent } from './profile/edit/edit.component';
     UserpartComponent,
     ProfileComponent,
     ShowComponent,
-    EditComponent
+    EditComponent,
+    AboutComponent,
+    PublicationsComponent,
+    ProjectsComponent,
+    AwardsComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -48,7 +57,8 @@ import { EditComponent } from './profile/edit/edit.component';
     HttpClientModule,
     ToastrModule.forRoot(), 
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [
     AuthService,
