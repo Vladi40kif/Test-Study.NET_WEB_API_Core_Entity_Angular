@@ -1,9 +1,17 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 	<div class="container">
 	
-		<div class="row-md-4 algin-self-start">
-			<a class="navbar-brand row " routerLink="/home">Home</a>
+		<div class="row-md-6 algin-self-start ">
+			<div class="col">
+				<a routerLink="/home" style="font-size: 35px; margin-right: 10px;">CreoNika</a>
+				<button routerLink="/about" class="btn btn-dark">About</button>
+				<button routerLink="/projects" class="btn btn-dark">Projects</button>
+				<button routerLink="/publications" class="btn btn-dark">Publications</button>
+				<button routerLink="/awards" class="btn btn-dark">Awards</button>
+			</div>
 		</div>
+
+
 
 		<div>
 			<app-userpart class="text-white"></app-userpart>

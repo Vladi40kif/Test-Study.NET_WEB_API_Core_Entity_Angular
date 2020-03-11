@@ -5,6 +5,10 @@ import { RegistrutionComponent } from './users/registrution/registrution.compone
 import { LoginComponent } from './users/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AboutComponent } from './about/about.component';
+import { PublicationsComponent } from './publications/publications.component';
+import { ProjectsComponent } from './projects/projects.component';
+import { AwardsComponent } from './awards/awards.component';
 
 const routes: Routes = [
 	{
@@ -34,6 +38,22 @@ const routes: Routes = [
 	{
 		path:'profile',
 		component: ProfileComponent
+	},
+	{
+		path:'about',
+		component: AboutComponent
+	},
+	{
+		path:'awards',
+		component: AwardsComponent
+	},
+	{
+		path:'projects',
+		component: ProjectsComponent
+	},
+	{
+		path:'publications',
+		component: PublicationsComponent
 	}
 ];
 
