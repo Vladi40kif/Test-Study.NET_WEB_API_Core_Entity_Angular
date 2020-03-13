@@ -26,11 +26,11 @@ import { ProfileComponent } from './profile/profile.component';
 import { ShowComponent } from './profile/show/show.component';
 import { EditComponent } from './profile/edit/edit.component';
 
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AboutComponent } from './about/about.component';
 import { PublicationsComponent } from './publications/publications.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { AwardsComponent } from './awards/awards.component';
+import { CarouselComponent } from './home/carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +48,8 @@ import { AwardsComponent } from './awards/awards.component';
     AboutComponent,
     PublicationsComponent,
     ProjectsComponent,
-    AwardsComponent
+    AwardsComponent,
+    CarouselComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -57,8 +58,7 @@ import { AwardsComponent } from './awards/awards.component';
     HttpClientModule,
     ToastrModule.forRoot(), 
     BrowserAnimationsModule,
-    FormsModule,
-    NgbModule
+    FormsModule
   ],
   providers: [
     AuthService,
