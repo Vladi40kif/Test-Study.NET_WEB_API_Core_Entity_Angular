@@ -31,6 +31,7 @@ import { PublicationsComponent } from './publications/publications.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { AwardsComponent } from './awards/awards.component';
 import { CarouselComponent } from './home/carousel/carousel.component';
+import { ArticleComponent } from './article/article.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { CarouselComponent } from './home/carousel/carousel.component';
     PublicationsComponent,
     ProjectsComponent,
     AwardsComponent,
-    CarouselComponent
+    CarouselComponent,
+    ArticleComponent
   ],
   imports: [
     ReactiveFormsModule,
