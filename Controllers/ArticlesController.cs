@@ -35,7 +35,7 @@ namespace WebApplication.Controllers
         [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<Articles>>> GetArticles(string _category)
         {
-            //Publications
+            // GET: api/Articles/Publications
             var category = await _context.ArticleCategorys.FirstOrDefaultAsync(x => x.Title == _category);
             
             if(category is null)

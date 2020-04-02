@@ -13,6 +13,7 @@ import { AuthService } from './shared/Auth/auth.service';
 import { EditProfileService } from './shared/editProfile/edit-profile.service';
 import { ProfileService } from './shared/profile/profile.service';
 import { UserService } from './shared/User/user.service';
+import { ArticlesService } from './shared/Aricles/articles.service';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -67,6 +68,7 @@ import { ArticleComponent } from './article/article.component';
     EditProfileService,
     ProfileService,
     UserService,
+    ArticlesService,
     {
         provide: HTTP_INTERCEPTORS,
         useClass: AuthInterceptor,
