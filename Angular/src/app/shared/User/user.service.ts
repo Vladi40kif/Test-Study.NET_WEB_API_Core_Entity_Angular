@@ -3,6 +3,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable, BehaviorSubject } from 'rxjs';
 import { UserModelService } from './user-model.service';
+
 import { State } from './StateEnum';
 
 
@@ -37,7 +38,7 @@ export class UserService implements OnInit {
 	
 			this.http.get(this.mainUrl + "/UserProfile").subscribe(
 			resp => {
-				this.model.deserialize(resp);
+				this.initModel(resp);
 				this.state.next(State.valid);
 			},
 			error => {
@@ -49,13 +50,23 @@ export class UserService implements OnInit {
 	getDataFromRequest(resp: any){
 
 		this.state.next(State.loading);
-		this.model.deserialize(resp)
+		this.initModel(resp);
 		this.state.next(State.valid);
 		
 	}
 
 	getState(): Observable<State>{
 		return this.state;
+	}
+
+	private initModel(resp: any){
+		this.model.username    = resp['username']; 
+		this.model.fullName    = resp['fullName'];
+		this.model.email       = resp['email'];
+		this.model.emailConfirm= resp['emailConfirm'];
+		this.model.phone       = resp['phone'];
+		this.model.phoneConfirm= resp['phoneConfirm'];
+		this.model.twoFaktor   = resp['twoFaktor'];
 	}
 
 }

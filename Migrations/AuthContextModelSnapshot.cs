@@ -221,61 +221,6 @@ namespace WebApplication.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("WebApplication.Models.ArticleArticleCategorys", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("ArticleCategoryID")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ArticleID")
-                        .HasColumnType("int");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("ArticleCategoryID");
-
-                    b.HasIndex("ArticleID");
-
-                    b.ToTable("ArticleArticleCategorys");
-                });
-
-            modelBuilder.Entity("WebApplication.Models.ArticleCategorys", b =>
-                {
-                    b.Property<int>("ArticleCategoryID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ArticleCategoryID");
-
-                    b.ToTable("ArticleCategorys");
-                });
-
-            modelBuilder.Entity("WebApplication.Models.Articles", b =>
-                {
-                    b.Property<int>("ArticleID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Context")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ArticleID");
-
-                    b.ToTable("Articles");
-                });
-
             modelBuilder.Entity("WebApplication.Models.AppUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
@@ -335,17 +280,6 @@ namespace WebApplication.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("WebApplication.Models.ArticleArticleCategorys", b =>
-                {
-                    b.HasOne("WebApplication.Models.ArticleCategorys", "ArticleCategory")
-                        .WithMany()
-                        .HasForeignKey("ArticleCategoryID");
-
-                    b.HasOne("WebApplication.Models.Articles", "Article")
-                        .WithMany()
-                        .HasForeignKey("ArticleID");
                 });
 #pragma warning restore 612, 618
         }
