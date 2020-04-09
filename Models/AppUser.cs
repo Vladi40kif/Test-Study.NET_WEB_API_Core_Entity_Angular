@@ -9,7 +9,7 @@ namespace WebApplication.Models
 {
     public class AppUser: IdentityUser
     {
-        [Column(TypeName = "nvarchar(150)")]    
+        [Column(TypeName = "nvarchar(150)")]
         public string FullName { get; set; }
 
     }

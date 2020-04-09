@@ -13,7 +13,6 @@ import { AuthService } from './shared/Auth/auth.service';
 import { EditProfileService } from './shared/editProfile/edit-profile.service';
 import { ProfileService } from './shared/profile/profile.service';
 import { UserService } from './shared/User/user.service';
-import { ArticlesService } from './shared/Aricles/articles.service';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -32,7 +31,6 @@ import { PublicationsComponent } from './publications/publications.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { AwardsComponent } from './awards/awards.component';
 import { CarouselComponent } from './home/carousel/carousel.component';
-import { ArticleComponent } from './article/article.component';
 
 @NgModule({
   declarations: [
@@ -51,8 +49,7 @@ import { ArticleComponent } from './article/article.component';
     PublicationsComponent,
     ProjectsComponent,
     AwardsComponent,
-    CarouselComponent,
-    ArticleComponent
+    CarouselComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -68,7 +65,6 @@ import { ArticleComponent } from './article/article.component';
     EditProfileService,
     ProfileService,
     UserService,
-    ArticlesService,
     {
         provide: HTTP_INTERCEPTORS,
         useClass: AuthInterceptor,
